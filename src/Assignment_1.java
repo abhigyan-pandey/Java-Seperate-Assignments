@@ -6,28 +6,41 @@ import java.io.* ;
 import edu.duke.* ;
 public class Assignment_1
 {
-    public void searchForFile(String regexpression , String fileName)
+    private void findFile()
     {
-            FileResource fr = new FileResource(fileName) ;    // Opening the file with specified name
-            for(String line : fr.lines())
-            {
-                if(line.contains(regexpression) )   // Printing the file name if regular expression is found
-                    System.out.println("The file with respective expression is found and the file name is -> " + fileName);
+        File file = new File("/home/knowledge-kingdom/IdeaProjects/Java-Seperate-Assignments");
+        //string to store the name of the file
+        String str ;
+        Scanner in = new Scanner(System.in);
+        do
+        {
+            int ab =0;
+            System.out.println("ENTER THE NAME OF FILE");
+            str =in.nextLine();
 
-                else
-                    System.out.println("This file does'nt contain the required expression");
+            String[] files = file.list();
+            for (String string : files)
+            {
+                Boolean flag = str.equals(string);
+                if (flag)
+                {
+                    ab = 1;
+                    System.out.println("File Found : ");
+                    System.out.println(string);
+                    //print the address of the file
+                    System.out.println("Path : "+ file.getAbsolutePath());
+                }
             }
+            if(ab == 0)
+            {
+                System.out.println("File not find : Reenter the name of the file.");
+            }
+        } while(true);
     }
+
     public static void main(String[] args)
     {
-        Scanner sc = new Scanner(System.in) ;
-        String regularExpression , fileName ;
-        regularExpression = sc.nextLine() ;
-        fileName = sc.nextLine() ;
-        Assignment_1 object = new Assignment_1() ;
-        while(true)
-        {
-            object.searchForFile(regularExpression,fileName);   // Calling the function for the purpose.
-        }
+        Assignment_1 object =new Assignment_1();
+        object.findFile();
     }
 }

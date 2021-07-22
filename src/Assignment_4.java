@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
-public class Assignment_3
+public class Assignment_4
 {
     Date signUpDate, currentDate;
     String stringStartDate, stringEndDate;
@@ -49,7 +49,7 @@ public class Assignment_3
 
     public static void main(String[] args) throws ParseException {
 
-        Assignment_3 obj =new Assignment_3();
+        Assignment_4 obj =new Assignment_4();
 
         obj.rangeKyc("16-07-1998", "27-06-2017");
         obj.rangeKyc("04-02-2016", "04-04-2017");
